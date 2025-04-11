@@ -9,7 +9,7 @@ Creates a multi-day plot combining helicorder plots with weather and RSAM data.
 
 ## heliStackWide.pl
 
-* Standalone script to create a montage of helicorder plots for several days.
+* Standalone script to create a multi-day montage of helicorder plots.
 * Uses *imagemagick*.
 
 ### Usage
@@ -68,8 +68,9 @@ Filter length for weather station data (running mean filter) [31]:
 
 ## stations.txt
 
-* Configuration file with possible station groupings.
+* Configuration file with station groupings that can be used in making the helicorder montage.
 * Used by both *heliStackWide.pl* and *plotSeaStateWindRsamHeliStack.m*.
+* You must run *createBlanks.pl* after changing *stations.txt*.
 
 ## Author
 
