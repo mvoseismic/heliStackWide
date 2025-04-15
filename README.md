@@ -22,6 +22,11 @@ Creates a multi-day plot combining helicorder plots with weather and RSAM data.
 * nsta: Number of stations to plot as defined in *stations.txt* (default 10).
 * helitype: Type of helicorder plots used in montage (default wide). The only other option is raw, which was an experiment.
 
+## heliStackWideLoop.pl
+
+* Calls *heliStackWide.pl* for a loop of dates.
+* Edit script to make changes.
+
 ## plotSeaStateWindRsamHeliStack.m
 
 * MATLAB script to generate plot
