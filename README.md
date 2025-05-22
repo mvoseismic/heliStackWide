@@ -1,5 +1,7 @@
 # heliStackWide
 
+## ~/src/heliStackWide
+
 Creates a multi-day plot combining helicorder plots with weather and RSAM data. 
 
 ## createBlanks.pl
