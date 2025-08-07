@@ -22,7 +22,7 @@ Creates a multi-day plot combining helicorder plots with weather and RSAM data.
 * dirSave: Directory to save plot (default */mnt/mvofls2/Seismic_Data/monitoring_data/helicorder_plots_stack_week*).
 * ndays: Number of days to plot (default 7)
 * nsta: Number of stations to plot as defined in *stations.txt* (default 10).
-* helitype: Type of helicorder plots used in montage (default wide). The only other option is raw, which was an experiment.
+* helitype: Type of helicorder plots used in montage (default wide). The only  other option is orig.
 
 ## heliStackWideLoop.pl
 

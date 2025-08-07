@@ -55,7 +55,12 @@ my $dirTmp = 'tmpHeliStackWide';
 mkdir($dirTmp) unless(-d $dirTmp);
 chdir( $dirTmp );
 `rm *`;
-`cp ../blankBig.* .`;
+if( $heliType eq 'orig' ){
+    `cp ../blankBigOrig.gif .`;
+    `mv blankBigOrig.gif blankBig.gif`;
+} else {
+    `cp ../blankBig.* .`;
+}
 
 my $rightNow = timegm(gmtime);
 if( $date eq "yesterday" ){
@@ -88,6 +93,8 @@ my @stas = split /\s+/, $stations[$nsta];
 my $dirHelis;
 if( $date eq 'now' ){
     $dirHelis = "/mnt/earthworm3/monitoring_data/helicorder_plots_wide";
+} elsif( $heliType eq 'orig' ) {
+    $dirHelis = "/mnt/mvofls2/Seismic_Data/monitoring_data/helicorder_plots";
 } elsif( $heliType eq 'raw' ) {
     $dirHelis = "/mnt/mvofls2/Seismic_Data/monitoring_data/helicorder_plots_raw";
 } else {
@@ -160,7 +167,11 @@ if( $heliType eq 'raw' ) {
 }
 system( $cmd );
 
-$cmd = 'magick mogrify -crop 1920x1080+50+50 M*.gif';
+if( $heliType eq 'orig' ){
+    $cmd = 'magick mogrify -crop 775x1405+50+50 M*.gif';
+} else {
+    $cmd = 'magick mogrify -crop 1920x1080+50+50 M*.gif';
+}
 if( $heliType eq 'raw' ) {
     $cmd =~ s/gif$/png/;
 }
