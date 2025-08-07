@@ -221,6 +221,11 @@ $cmd = join( '', 'magick montage ', $stringFiles, ' -tile 1x -geometry +0+10+0+1
 print "$fileMontage\n";
 system( $cmd );
 
+if( $heliType eq 'orig' ){
+    my $cmd = join( ' ', 'mogrify -resize 5410x1940!', $fileMontage );
+    system( $cmd );
+}
+
 `mv $fileMontage ..`;
 
 $cmd = 'rm *';
