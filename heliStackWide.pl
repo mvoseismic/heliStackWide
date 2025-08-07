@@ -162,6 +162,7 @@ foreach my $fileCorrupt( @filesCorrupt ){
 
 # Get size of first heliplot
 my $imgSize = `identify -format '%wx%h\n' M*.gif | head -1`;
+chomp $imgSize;
 
 my $cmd = 'magick mogrify -colorspace gray M*.gif';
 if( $heliType eq 'raw' ) {
@@ -171,9 +172,9 @@ system( $cmd );
 
 if( $heliType eq 'orig' ){
     if( $imgSize eq '902x1500' ) {
-        $cmd = 'magick mogrify -crop 775x1405+50+50 M*.gif';
+        $cmd = 'magick mogrify -crop 773x1407+50+50 M*.gif';
     } elsif( $imgSize eq '852x1500' ){
-        $cmd = 'magick mogrify -crop 725x1445+50+25 M*.gif';
+        $cmd = 'magick mogrify -crop 723x1441+50+25 M*.gif';
     }
 } else {
     $cmd = 'magick mogrify -crop 1920x1080+50+50 M*.gif';
