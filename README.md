@@ -29,6 +29,11 @@ Creates a multi-day plot combining helicorder plots with weather and RSAM data.
 * Calls *heliStackWide.pl* for a loop of dates.
 * Edit script to make changes.
 
+## heliStackWideYear.pl
+
+* Calls *heliStackWide.pl* for a loop of years and creates a montage for each year.
+* Edit script to make changes.
+
 ## plotSeaStateWindRsamHeliStack.m
 
 * MATLAB script to generate plot

@@ -4,18 +4,18 @@ use warnings;
 use DateTime;
 
 my $start = DateTime->new(
-    day   => 10,
-    month => 10,
-    year  => 2020,
+    day   => 1,
+    month => 1,
+    year  => 2025,
 );
 $start->subtract(days=>1);
 
 my $stop = DateTime->now;
-$stop->add(days => 7);
+$stop->add(days => 14);
 
 
-while ( $start->add(days => 7) < $stop ) {
-    my $cmd = sprintf( "./heliStackWide.pl %s . 7 1", $start->strftime('%Y%m%d') );
+while ( $start->add(days => 14) < $stop ) {
+    my $cmd = sprintf( "./heliStackWide.pl %s . 14 1", $start->strftime('%Y%m%d') );
     print $cmd, "\n";
     system( $cmd );
 }
