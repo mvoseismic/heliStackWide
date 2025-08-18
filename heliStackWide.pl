@@ -164,7 +164,7 @@ foreach my $fileCorrupt( @filesCorrupt ){
 my $imgSize = `identify -format '%wx%h\n' M*.gif | head -1`;
 chomp $imgSize;
 
-my $cmd = 'magick mogrify -colorspace gray M*.gif';
+my $cmd = '/home/seisan/software/AppImages/magick mogrify -colorspace gray M*.gif';
 if( $heliType eq 'raw' ) {
     $cmd =~ s/gif$/png/;
 }
@@ -172,19 +172,19 @@ system( $cmd );
 
 if( $heliType eq 'orig' ){
     if( $imgSize eq '902x1500' ) {
-        $cmd = 'magick mogrify -crop 773x1407+50+50 M*.gif';
+        $cmd = '/home/seisan/software/AppImages/magick mogrify -crop 773x1407+50+50 M*.gif';
     } elsif( $imgSize eq '852x1500' ){
-        $cmd = 'magick mogrify -crop 723x1441+50+25 M*.gif';
+        $cmd = '/home/seisan/software/AppImages/magick mogrify -crop 723x1441+50+25 M*.gif';
     }
 } else {
-    $cmd = 'magick mogrify -crop 1920x1080+50+50 M*.gif';
+    $cmd = '/home/seisan/software/AppImages/magick mogrify -crop 1920x1080+50+50 M*.gif';
 }
 if( $heliType eq 'raw' ) {
     $cmd =~ s/gif$/png/;
 }
 system( $cmd );
 
-$cmd = 'magick mogrify -rotate -90 M*.gif';
+$cmd = '/home/seisan/software/AppImages/magick mogrify -rotate -90 M*.gif';
 if( $heliType eq 'raw' ) {
     $cmd =~ s/gif$/png/;
 }
@@ -197,7 +197,7 @@ foreach my $sta (@stas) {
     #    my $file2 = join( '', $sta, '-montage2.png' );
 
     #$cmd = join( '', 'magick montage ', $sta, '*.gif -tile x1 -geometry +1+1+1+1 ', $file1 );
-    $cmd = join( '', 'magick montage ', $sta, '*.gif -tile x1 -background red -geometry +1+0 ', $file1 );
+    $cmd = join( '', '/home/seisan/software/AppImages/magick montage ', $sta, '*.gif -tile x1 -background red -geometry +1+0 ', $file1 );
     if( $heliType eq 'raw' ) {
         $cmd =~ s/gif/png/;
     }
@@ -217,7 +217,7 @@ foreach my $sta( @stas ) {
 
 my $fileMontage = join( '', 'heliStackWide-', $stringDate, "-", "$days", 'd-', "$nsta", 's', '.png' );
 #$cmd = join( '', 'magick montage ', $stringFiles, ' -tile 1x -geometry +10+10+10+10 ', $fileMontage );
-$cmd = join( '', 'magick montage ', $stringFiles, ' -tile 1x -geometry +0+10+0+10 ', $fileMontage );
+$cmd = join( '', '/home/seisan/software/AppImages/magick montage ', $stringFiles, ' -tile 1x -geometry +0+10+0+10 ', $fileMontage );
 print "$fileMontage\n";
 system( $cmd );
 
@@ -240,11 +240,11 @@ my $fileMontage2 = $fileMontage;
 $fileMontage2 =~ s/.png/-shrunk.png/;
 
 `cp $fileMontage tmp1.png`;
-`magick mogrify -resize 2093x900! tmp1.png`;
+`/home/seisan/software/AppImages/magick mogrify -resize 2093x900! tmp1.png`;
 
 my $fileBlankL = sprintf( "blankL%d.png", $nsta );
 
-`magick montage $fileBlankL tmp1.png blankR.png -tile 3x1 -geometry +0+0 $fileMontage2`;
+`/home/seisan/software/AppImages/magick montage $fileBlankL tmp1.png blankR.png -tile 3x1 -geometry +0+0 $fileMontage2`;
 `rm tmp*.png`;
 
 
